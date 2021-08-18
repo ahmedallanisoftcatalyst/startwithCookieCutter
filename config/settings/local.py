@@ -26,10 +26,19 @@ CACHES = {
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
-)
-
+# EMAIL_BACKEND = env(
+#     "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
+# )
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'HOST': 'localhost',
+'NAME': 'tecmintdb',
+'USER': 'tecmint',
+'PASSWORD': 'securep@wd'
+}
+}
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
