@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="SEBzBSLOIWwa1wsAQroItMhrbWGqzKGyR6DE9r0VXzo0FyTy3q32VFZDJ7YEoYIo",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0","127.0.0.1"]
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -31,13 +31,13 @@ CACHES = {
 # )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.postgresql',
-'HOST': env.str("HOST",default="localhost"),
-'NAME': env.str("NAME",default="mydb"),
-'USER': env.str("USER",default="user1"),
-'PASSWORD': env.str("PASSWORD",default="1234.abcd")
-}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': env.str("HOST", default="localhost"),
+        'NAME': env.str("NAME", default="mydb"),
+        'USER': env.str("USER", default="user1"),
+        'PASSWORD': env.str("PASSWORD", default="1234.abcd")
+    }
 }
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
 INSTALLED_APPS += ["debug_toolbar"]  # noqa F405

@@ -1,6 +1,22 @@
 """
 Base settings to build other settings files upon.
 """
+# settings/base.py
+import os
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_variable(var_name):
+    """Get the environment variable or return exception."""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = 'Set the {} environment ,→ variable'.format(var_name)
+    raise ImproperlyConfigured(error_msg)
+
+
 from pathlib import Path
 
 import environ
@@ -239,7 +255,7 @@ LOGGING = {
     "formatters": {
         "verbose": {
             "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+                      "%(process)d %(thread)d %(message)s"
         }
     },
     "handlers": {
@@ -251,7 +267,6 @@ LOGGING = {
     },
     "root": {"level": "INFO", "handlers": ["console"]},
 }
-
 
 # django-allauth
 # ------------------------------------------------------------------------------
@@ -266,7 +281,6 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "my_awesome_project.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "my_awesome_project.users.adapters.SocialAccountAdapter"
-
 
 # Your stuff...
 # ------------------------------------------------------------------------------
