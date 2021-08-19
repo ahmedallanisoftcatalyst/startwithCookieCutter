@@ -33,14 +33,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql',
-'HOST': 'localhost',
-'NAME': 'tecmintdb',
-'USER': 'tecmint',
-'PASSWORD': 'securep@wd'
+'HOST': env.str("HOST",default="localhost"),
+'NAME': env.str("NAME",default="mydb"),
+'USER': env.str("USER",default="user1"),
+'PASSWORD': env.str("PASSWORD",default="1234.abcd")
 }
 }
-# django-debug-toolbar
-# ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
 INSTALLED_APPS += ["debug_toolbar"]  # noqa F405
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
