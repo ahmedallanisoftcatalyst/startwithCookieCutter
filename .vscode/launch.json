@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-        "name": "Python: Django",
+        "name": "runserver",
         "type": "python",
         "request": "launch",
         "program": "${workspaceFolder}/manage.py",
@@ -15,5 +15,16 @@
         ],
         "django": true
     },
+    {
+      "name": "migrate",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/manage.py",
+      "args": [
+          "migrate",
+          "--settings=config.settings.local"
+      ],
+      "django": true
+  },
   ]
 }

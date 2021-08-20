@@ -7,7 +7,7 @@ import os
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
-
+# django-environ can be good alternative of using this function
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
     try:
