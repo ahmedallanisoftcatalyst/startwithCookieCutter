@@ -5,8 +5,11 @@ Base settings to build other settings files upon.
 import os
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
+from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
+
+import environ
 # django-environ can be good alternative of using this function
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
@@ -17,9 +20,7 @@ def get_env_variable(var_name):
     raise ImproperlyConfigured(error_msg)
 
 
-from pathlib import Path
 
-import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # my_awesome_project/
